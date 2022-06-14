@@ -10,7 +10,7 @@ function Grocery(){
 
     React.useEffect(()=>{
       setLoading(true);
-      fetch(`http://localhost:3001/todos?_page=${page}&_limit=3`)
+      fetch(`http://localhost:3000/todos?_page=${page}&_limit=3`)
       .then((res)=>res.json())
       .then((res)=>{setData(res);
              setLoading(false);})
@@ -25,7 +25,7 @@ function Grocery(){
         status:false
       };
         setLoading(true)
-        fetch(`http://localhost:3001/todos?_page=${page}&_limit={3}`,
+        fetch(`http://localhost:3000/todos?_page=${page}&_limit={3}`,
         {
           method: "POST",
           body: JSON.stringify(payload),
@@ -47,16 +47,11 @@ function Grocery(){
     //  alert(id)
     // setData(filteredData)
     setLoading(true)
-    fetch(`http://localhost:3001/todos/${id}`,{method:"DELETE"})
+    fetch(`http://localhost:3000/todos/${id}`,{method:"DELETE"})
     .then((res)=>res.json())
     .then((res)=>{window.location.reload();setLoading(false)})
     .catch((err)=>console.log(err))
     
-    // fetch('http://localhost:3001/todos')
-    // .then((res)=>res.json())
-    // .then((res)=>setData(res))
-    // .catch((err)=>console.log(err))
-    // setLoading(false)
     }
   
     function handleStatus(id){
@@ -74,7 +69,7 @@ function Grocery(){
   
     return loading?(<p>Loading...</p>):(
       <>
-      <h1>Your ToDo's</h1>
+      <h1>Grocery</h1>
     <GroceryInput handleAdd={handleAdd} />
 
     <GroceryList data={data} handleDelete={handleDelete} handleStatus={handleStatus}/>

@@ -11,9 +11,9 @@ function GroceryInput({handleAdd}){
     }
     return(
     <>
-    <input type={"text"} placeholder="Add an ToDo" value={value} onChange={handle}></input>
+    <input type={"text"} placeholder="Add an Item" value={value} onChange={handle}></input>
     
-    <button onClick={()=>{handleAdd(value);setValue("")}}>Save</button>
+    <button onClick={()=>{handleAdd(value);setValue("")}}>Add</button>
     </>
     );
   }
